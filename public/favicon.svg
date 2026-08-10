@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="DAVIDEL">
+  <rect width="512" height="512" rx="112" fill="#060506"/>
+  <rect x="30" y="30" width="452" height="452" rx="92" fill="none" stroke="#e3007e" stroke-width="8" opacity="0.9"/>
+  <path d="M168 132v248h82c79 0 136-49 136-124s-57-124-136-124h-82Zm48 43h31c53 0 89 30 89 81s-36 81-89 81h-31V175Z" fill="#f6f2ef"/>
+  <circle cx="352" cy="148" r="14" fill="#e3007e"/>
+</svg>
