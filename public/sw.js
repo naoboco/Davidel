@@ -1,4 +1,4 @@
-const CACHE = 'davidel-pwa-v1'
+const CACHE = 'davidel-pwa-v2'
 const APP_SHELL = ['./', './manifest.webmanifest', './favicon.svg', './icons/icon-192.png', './icons/icon-512.png']
 
 self.addEventListener('install', (event) => {
