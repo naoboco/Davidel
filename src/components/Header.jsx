@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
-import { Menu as Burger, X, MessageCircle, Phone } from 'lucide-react'
+import { Menu as Burger, X, MessageCircle, Phone, Languages } from 'lucide-react'
 import { useLang } from '../i18n/LangContext'
 import { LOGO, CONTACT } from '../data/siteData'
 import { waOpen, telLink } from '../lib/whatsapp'
@@ -58,10 +58,11 @@ export default function Header({ onOrder }) {
         </a>
 
         <div className="header-right">
-          <div className="lang" role="group" aria-label="Langue" dir="ltr">
-            <button type="button" aria-pressed={lang === 'fr'} className={lang === 'fr' ? 'is-on' : ''} onClick={() => changeLanguage('fr')}>FR</button>
+          <div className="lang" role="group" aria-label="Choisir la langue" dir="ltr">
+            <Languages className="lang-icon" size={16} strokeWidth={1.8} aria-hidden="true" />
+            <button type="button" aria-label="Français" aria-pressed={lang === 'fr'} className={lang === 'fr' ? 'is-on' : ''} onClick={() => changeLanguage('fr')}>FR</button>
             <span aria-hidden="true">/</span>
-            <button type="button" aria-pressed={lang === 'he'} className={lang === 'he' ? 'is-on' : ''} onClick={() => changeLanguage('he')} title="עברית">HE</button>
+            <button type="button" aria-label="עברית" aria-pressed={lang === 'he'} className={lang === 'he' ? 'is-on' : ''} onClick={() => changeLanguage('he')} title="עברית">HE</button>
           </div>
           <button type="button" className="btn btn-rose btn-sm" onClick={onOrder}>{t.order}</button>
         </div>
