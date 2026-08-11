@@ -37,6 +37,21 @@
   transform: scale(1.04);
 }
 
+/* Les filtres étaient trop fins, surtout sur un écran de bureau. */
+.menu-filter {
+  font-weight: 600 !important;
+  color: rgba(246,242,239,.88) !important;
+  letter-spacing: .15em !important;
+}
+.menu-filter.is-on {
+  color: #171315 !important;
+  font-weight: 600 !important;
+}
+html.is-rtl .menu-filter {
+  font-weight: 600 !important;
+  letter-spacing: .04em !important;
+}
+
 @media (min-width: 1081px) {
   :root { --section-y: clamp(88px, 6.7vw, 116px); }
 
