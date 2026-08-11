@@ -27,7 +27,7 @@ export const T = {
     seeAll: 'Voir toute la carte',
 
     uniEyebrow: 'Nos univers',
-    uniTitle: 'CINQ FAÇONS DE NOUS DEMANDER QUELQUE CHOSE',
+    uniTitle: 'QUATRE FAÇONS DE NOUS DEMANDER QUELQUE CHOSE',
 
     menuEyebrow: 'La carte',
     menuTitle: 'CE QUE VOUS POUVEZ COMMANDER AUJOURD’HUI',
@@ -119,7 +119,7 @@ export const T = {
     seeAll: 'לתפריט המלא',
 
     uniEyebrow: 'העולמות שלנו',
-    uniTitle: 'חמש דרכים לבקש מאיתנו משהו',
+    uniTitle: 'ארבע דרכים לבקש מאיתנו משהו',
 
     menuEyebrow: 'התפריט',
     menuTitle: 'מה אפשר להזמין היום',
