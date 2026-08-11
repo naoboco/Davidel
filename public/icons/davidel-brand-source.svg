@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 1024 1024">
+  <rect width="1024" height="1024" rx="224" fill="#060506"/>
+  <defs>
+    <filter id="softGlow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="15" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+  <circle cx="512" cy="512" r="447" fill="none" stroke="#e3007e" stroke-width="8" opacity=".26" filter="url(#softGlow)"/>
+  <image href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMwAAADMCAYAAAA9EGbFAACV70lEQVR42uy9B5wcR5U+/qq6Z3rSe89MWkqWbFmy5V3JuAQshADJsmMDGcElxHiTTSADG4zhHcZgMBk7k5WVFCvZkixLliRbkiR7l72H7GZnVFVfP9rdXd3uZJYw+f1qPXxUT8/UzKp69VZXb33rW+977x0iQsh/mIjoGPPsMQzDMIx/bFay...TRUNCATED..." x="112" y="112" width="800" height="800" preserveAspectRatio="xMidYMid meet"/>
+</svg>
