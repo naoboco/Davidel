@@ -69,10 +69,10 @@ export default function Gallery() {
           <motion.div className="lightbox"
             initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
             onClick={() => setOpen(null)}>
-            <button className="lightbox-close" onClick={() => setOpen(null)} aria-label={t.close}>
-              <X size={26} strokeWidth={1.2} />
+            <button type="button" className="lightbox-close" onClick={(e) => { e.stopPropagation(); setOpen(null) }} aria-label={t.close}>
+              <X size={28} strokeWidth={1.35} />
             </button>
-            <button className="lightbox-nav prev" onClick={(e) => { e.stopPropagation(); go(-1) }} aria-label="←">
+            <button type="button" className="lightbox-nav prev" onClick={(e) => { e.stopPropagation(); go(-1) }} aria-label="←">
               <ChevronLeft size={30} strokeWidth={1} />
             </button>
             <motion.img
@@ -91,7 +91,7 @@ export default function Gallery() {
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0 }}
               transition={{ duration: 0.4 }} />
-            <button className="lightbox-nav next" onClick={(e) => { e.stopPropagation(); go(1) }} aria-label="→">
+            <button type="button" className="lightbox-nav next" onClick={(e) => { e.stopPropagation(); go(1) }} aria-label="→">
               <ChevronRight size={30} strokeWidth={1} />
             </button>
             <span className="lightbox-count">{open + 1} / {items.length}</span>
