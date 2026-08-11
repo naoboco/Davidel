@@ -168,44 +168,45 @@ html.is-rtl .menu-filter {
       linear-gradient(215deg, rgba(246, 242, 239, .026), rgba(246, 242, 239, .006));
   }
 
-  /* HERO : vrai panneau lisible, sans masquer l'image */
+  /* HERO : plus de cadre. La lisibilité vient d'un fondu noir élégant. */
   .hero {
     grid-template-columns: 46% 54%;
   }
 
   .hero-text {
-    margin-inline-start: var(--gutter);
-    width: calc(100% - var(--gutter));
-    max-width: 760px;
-    padding: clamp(38px, 3.4vw, 58px);
+    margin-inline-start: 0;
+    width: auto;
+    max-width: none;
+    padding: 132px var(--gutter) 72px;
     gap: 22px;
-    border: 1px solid rgba(246,242,239,.34);
-    border-radius: 5px;
-    background:
-      radial-gradient(circle at 12% 0%, rgba(227,0,126,.08), transparent 34%),
-      rgba(6,5,6,.86);
-    backdrop-filter: blur(12px);
-    box-shadow:
-      inset 0 0 0 1px rgba(227,0,126,.14),
-      0 0 0 10px rgba(6,5,6,.72),
-      0 0 0 12px rgba(227,0,126,.58),
-      0 30px 100px rgba(0,0,0,.38);
+    border: 0;
+    border-radius: 0;
+    background: linear-gradient(
+      to right,
+      rgba(6,5,6,.98) 0%,
+      rgba(6,5,6,.94) 58%,
+      rgba(6,5,6,.72) 82%,
+      rgba(6,5,6,0) 100%
+    );
+    backdrop-filter: none;
+    box-shadow: none;
   }
 
-  .hero-text::before {
-    content: '';
-    position: absolute;
-    top: -2px;
-    inset-inline-start: clamp(36px, 4vw, 62px);
-    width: 104px;
-    height: 4px;
-    border-radius: 999px;
-    background: var(--rose);
-    box-shadow: 0 0 24px rgba(227,0,126,.38);
+  html.is-rtl .hero-text {
+    background: linear-gradient(
+      to left,
+      rgba(6,5,6,.98) 0%,
+      rgba(6,5,6,.94) 58%,
+      rgba(6,5,6,.72) 82%,
+      rgba(6,5,6,0) 100%
+    );
   }
+
+  .hero-text::before { display: none; }
 
   .hero-title {
     max-width: 11ch;
+    text-shadow: 0 3px 24px rgba(0,0,0,.46);
   }
 
   .hero-title .l3 {
@@ -214,12 +215,13 @@ html.is-rtl .menu-filter {
     font-size: clamp(30px, 2.5vw, 42px);
     line-height: 1.14;
     margin-top: 18px;
-    text-shadow: 0 0 26px rgba(227,0,126,0.22);
+    text-shadow: 0 2px 24px rgba(0,0,0,.55), 0 0 26px rgba(227,0,126,0.20);
   }
 
   .hero-text .lede {
     font-weight: 500;
-    color: rgba(246,242,239,.94);
+    color: rgba(246,242,239,.96);
+    text-shadow: 0 2px 16px rgba(0,0,0,.42);
   }
 
   html.is-rtl .hero-title .l3 {
@@ -227,57 +229,53 @@ html.is-rtl .menu-filter {
     font-weight: 700;
   }
 
-  /* UNIVERS : le menu lui-même devient un panneau premium lisible */
+  /* UNIVERS : cadre retiré, contraste renforcé et rythme plus net. */
   .uni-stage {
-    gap: clamp(28px, 3vw, 54px);
-    border-top: 0;
+    gap: clamp(34px, 4vw, 68px);
+    border-top: 1px solid rgba(246,242,239,.12);
     align-items: stretch;
   }
 
   .uni-names {
     position: relative;
-    padding: clamp(30px, 3vw, 52px);
-    border: 1px solid rgba(246,242,239,.30);
-    border-radius: 5px;
-    background:
-      radial-gradient(circle at 10% 0%, rgba(227,0,126,.065), transparent 30%),
-      linear-gradient(145deg, rgba(246,242,239,.022), rgba(246,242,239,.005));
-    box-shadow:
-      inset 0 0 0 1px rgba(227,0,126,.12),
-      0 0 0 8px var(--noir),
-      0 0 0 10px rgba(227,0,126,.50);
+    padding: clamp(26px, 2.5vw, 42px) 0;
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+    box-shadow: none;
   }
 
-  .uni-names::before {
-    content: '';
-    position: absolute;
-    top: -2px;
-    inset-inline-start: 34px;
-    width: 86px;
-    height: 4px;
-    border-radius: 999px;
-    background: var(--rose);
-  }
+  .uni-names::before { display: none; }
 
   .uni-name {
-    color: rgba(246,242,239,.76);
+    color: rgba(246,242,239,.84);
+    font-size: clamp(38px, 4.2vw, 58px);
     font-weight: 600;
-    text-shadow: 0 2px 20px rgba(0,0,0,.28);
+    line-height: 1.12;
+    padding-block: 4px;
+    text-shadow: 0 2px 22px rgba(0,0,0,.36);
   }
 
   .uni-name .idx {
-    color: rgba(246,242,239,.58);
-    font-weight: 600;
+    color: rgba(246,242,239,.62);
+    font-weight: 700;
+  }
+
+  .uni-name:hover {
+    color: rgba(255,255,255,.98);
   }
 
   .uni-name.is-on {
     color: var(--rose-clair);
     font-weight: 700;
+    text-shadow: 0 0 26px rgba(227,0,126,.16);
   }
 
   .uni-desc {
-    color: rgba(246,242,239,.90);
+    color: rgba(246,242,239,.94);
+    font-size: 16px;
     font-weight: 500;
+    line-height: 1.55;
   }
 
   /* RECEPTIONS / EVENEMENTS : panneau sur la photo */
@@ -320,6 +318,44 @@ html.is-rtl .menu-filter {
   .events-inner .lede {
     font-weight: 500;
     color: rgba(246,242,239,.94);
+  }
+
+  /* CONTACT : 'ON PRÉPARE / QUELQUE CHOSE ?' doit rester spectaculaire,
+     mais sans disparaître dans la photo. Voile sombre, aucun cadre. */
+  .contact-inner > .display-xl {
+    position: relative;
+    width: fit-content;
+    max-width: 12ch;
+    padding: 24px 34px 28px;
+    margin-inline-start: -34px;
+    background: linear-gradient(
+      90deg,
+      rgba(6,5,6,.94) 0%,
+      rgba(6,5,6,.78) 72%,
+      rgba(6,5,6,0) 100%
+    );
+    font-size: clamp(66px, 6.6vw, 108px);
+    font-weight: 600;
+    line-height: .94;
+    letter-spacing: -.025em;
+    text-shadow: 0 3px 30px rgba(0,0,0,.62);
+  }
+
+  html.is-rtl .contact-inner > .display-xl {
+    margin-inline-start: 0;
+    margin-inline-end: -34px;
+    background: linear-gradient(
+      270deg,
+      rgba(6,5,6,.94) 0%,
+      rgba(6,5,6,.78) 72%,
+      rgba(6,5,6,0) 100%
+    );
+  }
+
+  .contact-inner > .display-xl .rose {
+    color: var(--rose-clair);
+    font-weight: 700;
+    text-shadow: 0 2px 28px rgba(0,0,0,.60), 0 0 22px rgba(227,0,126,.18);
   }
 
   .header { padding-block: 16px; }
