@@ -8,8 +8,9 @@ import { Reveal, MaskLine } from '../lib/motion'
 
 export default function Universes({ onFilter }) {
   const { t, f, lang } = useLang()
-  const [active, setActive] = useState(UNIVERSES[0].id)
-  const uni = UNIVERSES.find((u) => u.id === active)
+  const universes = UNIVERSES.filter((u) => u.id !== 'sushi')
+  const [active, setActive] = useState(universes[0].id)
+  const uni = universes.find((u) => u.id === active) || universes[0]
 
   return (
     <section className="section uni" id="univers" style={{ paddingBottom: 0 }}>
@@ -20,7 +21,7 @@ export default function Universes({ onFilter }) {
 
       <div className="uni-stage">
         <div className="uni-names">
-          {UNIVERSES.map((u, i) => (
+          {universes.map((u, i) => (
             <div key={u.id}>
               <button
                 className={`uni-name${u.id === active ? ' is-on' : ''}`}
