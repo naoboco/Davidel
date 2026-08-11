@@ -1,0 +1,62 @@
+.launch-splash {
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 50% 43%, rgba(227,0,126,.09), transparent 28%),
+    #050405;
+}
+
+.launch-logo {
+  width: min(58vw, 430px);
+  max-width: 82vh;
+  position: relative;
+  z-index: 3;
+  filter: drop-shadow(0 0 22px rgba(227,0,126,.24));
+}
+
+.launch-orbit {
+  position: absolute;
+  width: min(72vw, 540px);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.launch-orbit-a {
+  border: 2px solid rgba(255,43,152,.9);
+  box-shadow:
+    0 0 20px rgba(227,0,126,.48),
+    inset 0 0 20px rgba(227,0,126,.16);
+}
+
+.launch-orbit-b {
+  width: min(83vw, 625px);
+  border: 1px solid rgba(246,242,239,.34);
+  box-shadow: 0 0 36px rgba(227,0,126,.22);
+}
+
+.launch-glint {
+  position: absolute;
+  z-index: 4;
+  width: 38vw;
+  max-width: 420px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #fff2e9, #ff2a98, transparent);
+  box-shadow: 0 0 18px #e3007e;
+  transform: rotate(-14deg);
+}
+
+@media (max-width: 720px) {
+  .launch-logo { width: min(72vw, 360px); }
+  .launch-orbit-a { width: min(84vw, 420px); }
+  .launch-orbit-b { width: min(96vw, 490px); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .launch-orbit,
+  .launch-glint { display: none; }
+}
