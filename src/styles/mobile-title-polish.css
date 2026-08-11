@@ -161,6 +161,25 @@
 }
 
 @media (max-width: 620px) {
+  /* Téléphone : on retire complètement la grande photo d'ouverture.
+     Le contenu DAVIDEL arrive immédiatement après le header. */
+  .hero-media {
+    display: none !important;
+  }
+
+  .hero {
+    display: block !important;
+    min-height: auto !important;
+    background:
+      radial-gradient(circle at 10% 0%, rgba(227,0,126,.055), transparent 34%),
+      var(--noir);
+  }
+
+  .hero-text {
+    padding: 34px 20px 46px !important;
+    gap: 20px !important;
+  }
+
   .section > .section-head {
     padding: 22px 18px 24px !important;
     margin-inline: 0;
