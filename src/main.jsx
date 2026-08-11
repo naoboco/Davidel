@@ -4,6 +4,7 @@ import App from './App'
 import './styles/global.css'
 import './styles/desktop-fixes.css'
 import './styles/splash.css'
+import './styles/demo-polish.css'
 
 createRoot(document.getElementById('root')).render(
   <React.StrictMode>
