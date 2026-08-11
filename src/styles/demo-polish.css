@@ -1,0 +1,91 @@
+/* DAVIDEL — final demo polish */
+
+/* Language switcher: visible on black backgrounds AND over photography. */
+.lang {
+  position: relative;
+  display: inline-flex !important;
+  align-items: center;
+  gap: 3px !important;
+  min-height: 42px;
+  padding: 4px 5px 4px 9px;
+  border: 1px solid rgba(246, 242, 239, .26);
+  border-radius: 999px;
+  background: rgba(6, 5, 6, .82);
+  backdrop-filter: blur(14px) saturate(1.15);
+  -webkit-backdrop-filter: blur(14px) saturate(1.15);
+  box-shadow: 0 8px 28px rgba(0,0,0,.28), inset 0 0 0 1px rgba(227,0,126,.06);
+  color: rgba(246,242,239,.66) !important;
+  transition: border-color .3s var(--ease), background .3s var(--ease), box-shadow .3s var(--ease);
+}
+
+.lang:hover {
+  border-color: rgba(227,0,126,.60);
+  background: rgba(16,13,15,.94);
+  box-shadow: 0 10px 34px rgba(0,0,0,.34), 0 0 0 1px rgba(227,0,126,.10);
+}
+
+.lang-icon {
+  flex: 0 0 auto;
+  margin-inline: 3px 2px;
+  color: var(--rose-clair);
+  opacity: .95;
+}
+
+.lang button {
+  min-width: 38px !important;
+  min-height: 34px !important;
+  padding: 0 9px !important;
+  border-radius: 999px !important;
+  font-size: 11px !important;
+  font-weight: 700 !important;
+  letter-spacing: .08em !important;
+  color: rgba(246,242,239,.64) !important;
+  background: transparent !important;
+  transition: color .25s var(--ease), background .25s var(--ease), box-shadow .25s var(--ease), transform .25s var(--ease);
+}
+
+.lang button:hover {
+  color: #fff !important;
+  background: rgba(246,242,239,.08) !important;
+}
+
+.lang button.is-on {
+  color: #fff !important;
+  background: linear-gradient(135deg, rgba(227,0,126,.98), rgba(255,79,174,.92)) !important;
+  box-shadow: 0 5px 16px rgba(227,0,126,.26);
+}
+
+.lang button:active { transform: scale(.97); }
+
+.lang > span {
+  color: rgba(246,242,239,.28) !important;
+  opacity: 1 !important;
+  font-weight: 500;
+}
+
+@media (max-width: 1080px) {
+  .lang {
+    min-height: 40px;
+    padding: 3px 4px 3px 7px;
+  }
+  .lang-icon { display: none; }
+  .lang button {
+    min-width: 36px !important;
+    min-height: 32px !important;
+    padding-inline: 8px !important;
+  }
+}
+
+@media (max-width: 620px) {
+  .header-right { gap: 8px; }
+  .lang {
+    min-height: 38px;
+    padding: 2px 3px;
+    border-color: rgba(246,242,239,.30);
+  }
+  .lang button {
+    min-width: 34px !important;
+    min-height: 32px !important;
+    font-size: 10px !important;
+  }
+}
