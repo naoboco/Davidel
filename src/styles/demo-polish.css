@@ -66,6 +66,36 @@
 
 .lang button:active { transform: scale(.97); }
 
+/* Actions flottantes desktop : la pastille reste ancrée à droite et le libellé
+   s'ouvre vers l'intérieur de l'écran, jamais hors viewport. */
+@media (min-width: 1081px) {
+  .rail {
+    width: 250px;
+    align-items: flex-end;
+    pointer-events: none;
+  }
+
+  .rail-btn {
+    flex: 0 0 auto;
+    pointer-events: auto;
+    margin-inline-start: auto;
+  }
+
+  .rail-btn:hover {
+    width: 250px;
+  }
+
+  .rail-btn .lb {
+    flex: 1;
+    text-align: start;
+    padding-inline: 18px 8px;
+  }
+
+  .rail-btn .ic {
+    flex: 0 0 46px;
+  }
+}
+
 @media (max-width: 1080px) {
   .lang {
     min-height: 42px;
