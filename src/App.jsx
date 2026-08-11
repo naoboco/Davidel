@@ -2,6 +2,7 @@ import { useCallback, useState } from 'react'
 import { LangProvider } from './i18n/LangContext'
 import { CarnetProvider } from './lib/CarnetContext'
 
+import SplashScreen from './components/SplashScreen'
 import Cursor from './components/Cursor'
 import Header from './components/Header'
 import Hero from './components/Hero'
@@ -31,6 +32,7 @@ export default function App() {
   return (
     <LangProvider>
       <CarnetProvider>
+        <SplashScreen />
         <Cursor />
         <Header onOrder={() => goToMenu('tout')} />
         <main>
