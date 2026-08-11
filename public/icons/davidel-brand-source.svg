@@ -1,11 +1,31 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 1024 1024">
-  <rect width="1024" height="1024" rx="224" fill="#060506"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" role="img" aria-labelledby="title desc">
+  <title id="title">DAVIDEL</title>
+  <desc id="desc">Icône DAVIDEL noire, blanche et rose</desc>
   <defs>
-    <filter id="softGlow" x="-30%" y="-30%" width="160%" height="160%">
-      <feGaussianBlur stdDeviation="15" result="blur"/>
-      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    <radialGradient id="bg" cx="50%" cy="42%" r="72%">
+      <stop offset="0" stop-color="#171014"/>
+      <stop offset=".58" stop-color="#090708"/>
+      <stop offset="1" stop-color="#050405"/>
+    </radialGradient>
+    <linearGradient id="ring" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#8d004f"/>
+      <stop offset=".46" stop-color="#ff2a98"/>
+      <stop offset=".72" stop-color="#fff0e6"/>
+      <stop offset="1" stop-color="#e3007e"/>
+    </linearGradient>
+    <filter id="glow" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="18" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
     </filter>
   </defs>
-  <circle cx="512" cy="512" r="447" fill="none" stroke="#e3007e" stroke-width="8" opacity=".26" filter="url(#softGlow)"/>
-  <image href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMwAAADMCAYAAAA9EGbFAACV70lEQVR42uy9B5wcR5U+/qq6Z3rSe89MWkqWbFmy5V3JuAQshADJsmMDGcElxHiTTSADG4zhHcZgMBk7k5WVFCvZkixLliRbkiR7l72H7GZnVFVfP9rdXd3uZJYw+f1qPXxUT8/UzKp69VZXb33rW+977x0iQsh/mIjoGPPsMQzDMIx/bFay...TRUNCATED..." x="112" y="112" width="800" height="800" preserveAspectRatio="xMidYMid meet"/>
+  <rect width="1024" height="1024" rx="210" fill="url(#bg)"/>
+  <rect x="34" y="34" width="956" height="956" rx="188" fill="none" stroke="#f6f2ef" stroke-width="18"/>
+  <circle cx="512" cy="504" r="382" fill="#060506" stroke="url(#ring)" stroke-width="7" filter="url(#glow)"/>
+  <text x="512" y="250" text-anchor="middle" fill="#e3007e" font-family="Georgia, 'Times New Roman', serif" font-size="58" font-style="italic">Haute Couture</text>
+  <line x1="270" y1="300" x2="754" y2="300" stroke="#f6f2ef" stroke-width="4" opacity=".9"/>
+  <text x="512" y="478" text-anchor="middle" fill="#f6f2ef" font-family="Georgia, 'Times New Roman', serif" font-size="155" font-weight="700" letter-spacing="10">DAVIDEL</text>
+  <text x="512" y="555" text-anchor="middle" fill="#ff2a98" font-family="Arial, Helvetica, sans-serif" font-size="49" font-weight="700" letter-spacing="16">PÂTISSERIE TRAITEUR</text>
+  <line x1="278" y1="590" x2="746" y2="590" stroke="#e3007e" stroke-width="5"/>
+  <text x="512" y="672" text-anchor="middle" fill="#f6f2ef" font-family="Arial, Helvetica, sans-serif" font-size="43" font-weight="700">02 642 88 66</text>
+  <path d="M190 812C360 740 620 748 834 830" fill="none" stroke="#e3007e" stroke-width="10" opacity=".6" filter="url(#glow)"/>
 </svg>
