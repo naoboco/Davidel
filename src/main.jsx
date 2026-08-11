@@ -5,6 +5,7 @@ import './styles/global.css'
 import './styles/desktop-fixes.css'
 import './styles/splash.css'
 import './styles/demo-polish.css'
+import './styles/mobile-title-polish.css'
 
 createRoot(document.getElementById('root')).render(
   <React.StrictMode>
