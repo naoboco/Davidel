@@ -1,0 +1,218 @@
+/* DAVIDEL — premium mobile title readability
+   Uniquement tablette/téléphone. Le desktop conserve sa direction actuelle. */
+
+@media (max-width: 1080px) {
+  /* La Didone reste élégante, mais on lui donne assez de matière pour un écran mobile. */
+  .display,
+  .display-l,
+  .display-xl,
+  .display-m {
+    font-weight: 600 !important;
+    color: #fff;
+    text-rendering: geometricPrecision;
+    text-shadow: 0 2px 18px rgba(0,0,0,.44);
+  }
+
+  .rose,
+  .hero-title .l3,
+  .events-inner .rose,
+  .contact-inner .rose {
+    color: var(--rose-clair) !important;
+    font-weight: 700 !important;
+  }
+
+  /* Titres standards : version mobile du cadre éditorial desktop. */
+  .section > .section-head {
+    position: relative;
+    width: 100%;
+    max-width: 100%;
+    padding: clamp(24px, 5vw, 34px) clamp(20px, 5vw, 30px) !important;
+    margin-bottom: 38px !important;
+    gap: 12px !important;
+    border: 1px solid rgba(246,242,239,.30);
+    border-radius: 4px;
+    background:
+      radial-gradient(circle at 12% 0%, rgba(227,0,126,.10), transparent 38%),
+      linear-gradient(145deg, rgba(20,16,18,.96), rgba(6,5,6,.96));
+    box-shadow:
+      inset 0 0 0 1px rgba(227,0,126,.13),
+      0 0 0 6px var(--noir),
+      0 0 0 7px rgba(227,0,126,.48),
+      0 18px 50px rgba(0,0,0,.26);
+    overflow: visible;
+  }
+
+  .section > .section-head::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    inset-inline-start: 24px;
+    width: 72px;
+    height: 4px;
+    border-radius: 999px;
+    background: var(--rose);
+    box-shadow: 0 0 18px rgba(227,0,126,.34);
+  }
+
+  .section > .section-head .eyebrow {
+    color: rgba(246,242,239,.78) !important;
+    font-weight: 700 !important;
+  }
+
+  .section > .section-head .display-l,
+  .section > .section-head .display-xl,
+  #menu .section-head .display-l {
+    max-width: 100% !important;
+    color: #fff !important;
+    font-weight: 600 !important;
+    line-height: 1 !important;
+    letter-spacing: -.02em !important;
+    text-shadow: 0 2px 18px rgba(0,0,0,.48);
+  }
+
+  .section > .section-head .lede,
+  #menu .section-head .lede {
+    color: rgba(246,242,239,.90) !important;
+    font-weight: 500 !important;
+    line-height: 1.55 !important;
+  }
+
+  /* Hero : on ne remet pas le gros cadre desktop autour de tout le contenu.
+     Seulement une plaque éditoriale derrière le titre. */
+  .hero-title {
+    position: relative;
+    max-width: 100% !important;
+    padding: 24px 22px 26px;
+    border: 1px solid rgba(246,242,239,.28);
+    border-radius: 4px;
+    background:
+      radial-gradient(circle at 10% 0%, rgba(227,0,126,.09), transparent 38%),
+      rgba(8,6,7,.92);
+    box-shadow:
+      inset 0 0 0 1px rgba(227,0,126,.11),
+      0 0 0 5px var(--noir),
+      0 0 0 6px rgba(227,0,126,.40);
+  }
+
+  .hero-title::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    inset-inline-start: 22px;
+    width: 64px;
+    height: 4px;
+    border-radius: 999px;
+    background: var(--rose);
+  }
+
+  .hero-title .l3 {
+    text-shadow: 0 2px 20px rgba(0,0,0,.54), 0 0 20px rgba(227,0,126,.13) !important;
+  }
+
+  /* Réceptions sur photo : même langage, plus compact. */
+  .events-inner > div:first-child {
+    padding: 26px 22px 28px !important;
+    border: 1px solid rgba(246,242,239,.30) !important;
+    border-radius: 4px !important;
+    background: rgba(6,5,6,.86) !important;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    box-shadow:
+      inset 0 0 0 1px rgba(227,0,126,.12),
+      0 0 0 5px rgba(6,5,6,.72),
+      0 0 0 6px rgba(227,0,126,.42) !important;
+  }
+
+  .events-inner .display-l {
+    max-width: 100% !important;
+    font-weight: 600 !important;
+    line-height: 1 !important;
+  }
+
+  /* Contact : vrai fond lisible sous ON PRÉPARE / QUELQUE CHOSE ?. */
+  .contact-inner > .display-xl {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 24px 22px 26px !important;
+    border: 1px solid rgba(246,242,239,.28);
+    border-radius: 4px;
+    background:
+      radial-gradient(circle at 10% 0%, rgba(227,0,126,.10), transparent 38%),
+      rgba(6,5,6,.88) !important;
+    box-shadow:
+      inset 0 0 0 1px rgba(227,0,126,.12),
+      0 0 0 5px var(--noir),
+      0 0 0 6px rgba(227,0,126,.42);
+    font-weight: 600 !important;
+    line-height: .96 !important;
+  }
+
+  /* Les textes secondaires ne doivent plus sembler gris fantôme. */
+  .lede,
+  .uni-desc,
+  .product-desc,
+  .contact-infos p,
+  .menu-foot,
+  .hero-note {
+    color: rgba(246,242,239,.86) !important;
+    font-weight: 400;
+  }
+}
+
+@media (max-width: 620px) {
+  .section > .section-head {
+    padding: 22px 18px 24px !important;
+    margin-inline: 0;
+    box-shadow:
+      inset 0 0 0 1px rgba(227,0,126,.12),
+      0 0 0 4px var(--noir),
+      0 0 0 5px rgba(227,0,126,.44),
+      0 14px 38px rgba(0,0,0,.24);
+  }
+
+  .section > .section-head .display-l,
+  #menu .section-head .display-l {
+    font-size: clamp(36px, 10vw, 48px) !important;
+    line-height: .98 !important;
+  }
+
+  .hero-title {
+    padding: 21px 18px 23px;
+    box-shadow:
+      inset 0 0 0 1px rgba(227,0,126,.10),
+      0 0 0 4px var(--noir),
+      0 0 0 5px rgba(227,0,126,.38);
+  }
+
+  .hero-title.display-xl,
+  .hero-title .display-xl {
+    font-size: clamp(42px, 12vw, 58px) !important;
+  }
+
+  .events-inner > div:first-child {
+    padding: 23px 18px 25px !important;
+  }
+
+  .events-inner .display-l {
+    font-size: clamp(36px, 9.6vw, 48px) !important;
+  }
+
+  .contact-inner > .display-xl {
+    padding: 22px 18px 24px !important;
+    font-size: clamp(42px, 11.5vw, 58px) !important;
+  }
+}
+
+@media (max-width: 390px) {
+  .section > .section-head .display-l,
+  #menu .section-head .display-l,
+  .events-inner .display-l {
+    font-size: clamp(34px, 9.5vw, 42px) !important;
+  }
+
+  .hero-title,
+  .contact-inner > .display-xl {
+    padding-inline: 16px !important;
+  }
+}
