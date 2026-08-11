@@ -10,8 +10,8 @@ export function Reveal({ children, delay = 0, y = 26, as = 'div', className = ''
       className={className}
       initial={{ opacity: 0, y }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: '-60px' }}
-      transition={{ duration: 0.9, delay, ease: [0.16, 1, 0.3, 1] }}
+      viewport={{ once: true, margin: '-40px' }}
+      transition={{ duration: 0.75, delay, ease: [0.16, 1, 0.3, 1] }}
       {...rest}
     >
       {children}
@@ -19,19 +19,18 @@ export function Reveal({ children, delay = 0, y = 26, as = 'div', className = ''
   )
 }
 
-/* Reveal en masque vertical, réservé aux grands titres */
+/* Les grands titres restent visibles sur tous les écrans.
+   L'ancienne animation pouvait rester bloquée sous son masque sur certains grands écrans. */
 export function MaskLine({ children, delay = 0, className = '' }) {
   const reduce = useReducedMotion()
-  if (reduce) return <span className={className} style={{ display: 'block' }}>{children}</span>
   return (
-    <span style={{ display: 'block', overflow: 'hidden' }}>
+    <span className="mask-line" style={{ display: 'block', overflow: 'hidden' }}>
       <motion.span
         style={{ display: 'block' }}
         className={className}
-        initial={{ y: '108%' }}
-        whileInView={{ y: 0 }}
-        viewport={{ once: true, margin: '-40px' }}
-        transition={{ duration: 1.05, delay, ease: [0.16, 1, 0.3, 1] }}
+        initial={reduce ? false : { opacity: 0, y: '32%' }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.78, delay, ease: [0.16, 1, 0.3, 1] }}
       >
         {children}
       </motion.span>
