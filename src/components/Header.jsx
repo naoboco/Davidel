@@ -25,6 +25,12 @@ export default function Header({ onOrder }) {
     return () => { document.body.style.overflow = '' }
   }, [open])
 
+  const changeLanguage = (next) => {
+    if (next === lang) return
+    setLang(next)
+    setOpen(false)
+  }
+
   const jump = (href) => {
     setOpen(false)
     const el = document.querySelector(href)
@@ -43,7 +49,7 @@ export default function Header({ onOrder }) {
           ))}
         </nav>
 
-        <button className="burger" onClick={() => setOpen(true)} aria-label={t.nav.menu}>
+        <button type="button" className="burger" onClick={() => setOpen(true)} aria-label={t.nav.menu}>
           <Burger size={22} strokeWidth={1.2} />
         </button>
 
@@ -52,12 +58,12 @@ export default function Header({ onOrder }) {
         </a>
 
         <div className="header-right">
-          <div className="lang" role="group" aria-label="Langue">
-            <button className={lang === 'fr' ? 'is-on' : ''} onClick={() => setLang('fr')}>FR</button>
-            <span>/</span>
-            <button className={lang === 'he' ? 'is-on' : ''} onClick={() => setLang('he')}>HE</button>
+          <div className="lang" role="group" aria-label="Langue" dir="ltr">
+            <button type="button" aria-pressed={lang === 'fr'} className={lang === 'fr' ? 'is-on' : ''} onClick={() => changeLanguage('fr')}>FR</button>
+            <span aria-hidden="true">/</span>
+            <button type="button" aria-pressed={lang === 'he'} className={lang === 'he' ? 'is-on' : ''} onClick={() => changeLanguage('he')} title="עברית">HE</button>
           </div>
-          <button className="btn btn-rose btn-sm" onClick={onOrder}>{t.order}</button>
+          <button type="button" className="btn btn-rose btn-sm" onClick={onOrder}>{t.order}</button>
         </div>
       </header>
 
@@ -68,7 +74,7 @@ export default function Header({ onOrder }) {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -18 }}
             transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}>
-            <button className="burger" style={{ position: 'absolute', top: 22, insetInlineEnd: 'var(--gutter)' }}
+            <button type="button" className="burger" style={{ position: 'absolute', top: 22, insetInlineEnd: 'var(--gutter)' }}
                     onClick={() => setOpen(false)} aria-label={t.close}>
               <X size={24} strokeWidth={1.2} />
             </button>
