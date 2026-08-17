@@ -98,7 +98,7 @@ as $$
 $$;
 
 revoke all on function public.is_davidel_admin() from public;
-grant execute on function public.is_davidel_admin() to authenticated;
+grant execute on function public.is_davidel_admin() to anon, authenticated;
 
 alter table public.admin_users enable row level security;
 alter table public.products enable row level security;
