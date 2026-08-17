@@ -19,9 +19,18 @@ import FloatingActions from './components/FloatingActions'
 import MobileCTA from './components/MobileCTA'
 import Carnet from './components/Carnet'
 import InstallApp from './components/InstallApp'
+import AdminApp from './admin/AdminApp'
+
+function isAdminRoute() {
+  const path = window.location.pathname.replace(/\/+$/, '')
+  const params = new URLSearchParams(window.location.search)
+  return path.endsWith('/admin') || params.get('admin') === '1'
+}
 
 export default function App() {
   const [filter, setFilter] = useState('tout')
+
+  if (isAdminRoute()) return <AdminApp />
 
   const goToMenu = useCallback((f = 'tout') => {
     setFilter(f)
