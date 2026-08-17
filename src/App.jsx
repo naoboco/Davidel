@@ -30,13 +30,13 @@ function isAdminRoute() {
 export default function App() {
   const [filter, setFilter] = useState('tout')
 
-  if (isAdminRoute()) return <AdminApp />
-
   const goToMenu = useCallback((f = 'tout') => {
     setFilter(f)
     const el = document.getElementById('menu')
     if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' })
   }, [])
+
+  if (isAdminRoute()) return <AdminApp />
 
   return (
     <LangProvider>
