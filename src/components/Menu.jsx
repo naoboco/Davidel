@@ -1,15 +1,47 @@
+import { useEffect, useMemo, useState } from 'react'
 import { AnimatePresence, LayoutGroup } from 'framer-motion'
 import { MessageCircle, Phone } from 'lucide-react'
 import { useLang } from '../i18n/LangContext'
 import { FILTERS, PRODUCTS } from '../data/menuData'
 import { waOpen, telLink } from '../lib/whatsapp'
 import { CONTACT } from '../data/siteData'
+import { cmsConfigured, publicProducts } from '../lib/supabaseCms'
 import MenuProduct from './MenuProduct'
 import { Reveal, MaskLine } from '../lib/motion'
 
+function fromCms(row) {
+  return {
+    id: row.id,
+    fr: row.name_fr,
+    he: row.name_he,
+    descFr: row.description_fr || '',
+    descHe: row.description_he || '',
+    price: Number(row.price || 0),
+    tags: Array.isArray(row.tags) ? row.tags : [],
+    image_url: row.image_url || '',
+    unavailable: Boolean(row.unavailable_label),
+  }
+}
+
 export default function Menu({ filter, setFilter }) {
   const { t, lang } = useLang()
-  const shown = filter === 'tout' ? PRODUCTS : PRODUCTS.filter((p) => p.tags.includes(filter))
+  const [products, setProducts] = useState(PRODUCTS)
+
+  useEffect(() => {
+    if (!cmsConfigured) return
+    let alive = true
+    publicProducts()
+      .then(rows => {
+        if (alive && Array.isArray(rows) && rows.length) setProducts(rows.map(fromCms))
+      })
+      .catch(err => console.warn('DAVIDEL CMS fallback local:', err.message))
+    return () => { alive = false }
+  }, [])
+
+  const shown = useMemo(
+    () => filter === 'tout' ? products : products.filter((p) => p.tags.includes(filter)),
+    [filter, products]
+  )
 
   return (
     <section className="section" id="menu">
