@@ -32,7 +32,8 @@ export default function App() {
 
   const goToMenu = useCallback((f = 'tout') => {
     setFilter(f)
-    const el = document.getElementById('menu')
+    const compact = window.matchMedia('(max-width: 620px)').matches
+    const el = compact ? document.querySelector('#menu .menu-filters') : document.getElementById('menu')
     if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' })
   }, [])
 
