@@ -76,7 +76,6 @@ export default function Gallery() {
               <ChevronLeft size={30} strokeWidth={1} />
             </button>
             <motion.img
-              key={open}
               src={img(items[open].n)}
               alt=""
               drag="x"
@@ -89,7 +88,6 @@ export default function Gallery() {
               onClick={(e) => e.stopPropagation()}
               initial={{ opacity: 0, scale: 0.97 }}
               animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0 }}
               transition={{ duration: 0.4 }} />
             <button type="button" className="lightbox-nav next" onClick={(e) => { e.stopPropagation(); go(1) }} aria-label="→">
               <ChevronRight size={30} strokeWidth={1} />
