@@ -11,7 +11,7 @@ export default function Events() {
   return (
     <section className="events" id="events">
       <div className="events-bg">
-        <img src={img(2)} alt="" aria-hidden="true" />
+        <img src={img(27)} alt="" aria-hidden="true" />
       </div>
 
       <div className="events-inner">

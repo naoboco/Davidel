@@ -8,7 +8,7 @@ import { Reveal, MaskLine } from '../lib/motion'
 import { useScrollLock } from '../lib/useScrollLock'
 
 export default function Gallery() {
-  const { t, lang } = useLang()
+  const { t, f, lang } = useLang()
   const reduce = useReducedMotion()
   const [open, setOpen] = useState(null)
   useScrollLock(open !== null)
@@ -50,8 +50,8 @@ export default function Gallery() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-40px' }}
               transition={{ duration: 0.9, delay: (i % 3) * 0.07, ease: [0.16, 1, 0.3, 1] }}
-              aria-label={`Photo ${i + 1}`}>
-              <img src={img(g.n)} alt="" loading="lazy" />
+              aria-label={`Photo ${i + 1} : ${f(g)}`}>
+              <img src={img(g.n)} alt={f(g)} loading="lazy" />
             </motion.button>
           </Fragment>
         ))}
@@ -77,7 +77,7 @@ export default function Gallery() {
             </button>
             <motion.img
               src={img(items[open].n)}
-              alt=""
+              alt={f(items[open])}
               drag="x"
               dragConstraints={{ left: 0, right: 0 }}
               dragElastic={0.25}

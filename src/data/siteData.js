@@ -1,11 +1,12 @@
 /* =========================================================================
    DONNÉES DE MARQUE — DAVIDEL
    -------------------------------------------------------------------------
-   Visuels gastronomiques générés, enregistrés dans src/assets/products.
-   Chaque référence correspond au produit ou à l'univers représenté.
+   Visuels du menu dans src/assets/products ; photographies DAVIDEL dans
+   src/assets/establishment pour la galerie et les buffets.
    ========================================================================= */
 
 import { PRODUCT_IMAGES } from './productImages.js'
+import { ESTABLISHMENT_IMAGES } from './establishmentImages.js'
 
 export const LOGO = 'https://davidel.co.il/img/logo-1748603599.svg'
 
@@ -30,7 +31,13 @@ export const IMAGES = [
   PRODUCT_IMAGES['tarte-fruits-grand'],
   PRODUCT_IMAGES['pain-au-chocolat'],
   PRODUCT_IMAGES['viennoiserie'],
-  PRODUCT_IMAGES['tarte-fruits-individuelle']
+  PRODUCT_IMAGES['tarte-fruits-individuelle'],
+  ESTABLISHMENT_IMAGES.viennoiseries,
+  ESTABLISHMENT_IMAGES.cafePatisseries,
+  ESTABLISHMENT_IMAGES.piecesMontees,
+  ESTABLISHMENT_IMAGES.vitrine,
+  ESTABLISHMENT_IMAGES.buffetBrunch,
+  ESTABLISHMENT_IMAGES.buffetReception
 ]
 
 export const img = (n) => IMAGES[n - 1]
@@ -74,7 +81,7 @@ export const OCCASIONS = [
     lineFr: 'Le matin se prépare la veille. Nous livrons prêt à dresser.',
     lineHe: 'הבוקר מתארגן מאתמול. אנחנו מגיעים מוכנים להגשה.',
     products: ['plateau-sale', 'plateau-sucre', 'croissant', 'pain-au-chocolat', 'saint-honore'],
-    img: 8
+    img: 26
   },
   {
     id: 'cocktail',
@@ -83,7 +90,7 @@ export const OCCASIONS = [
     lineFr: 'Bouchées salées, mignardises, service debout.',
     lineHe: 'ביסים מלוחים, מיני-מתוקים, הגשה בעמידה.',
     products: ['petit-plateau-sale', 'plateau-sale', 'rocher', 'succes'],
-    img: 10
+    img: 27
   },
   {
     id: 'entreprise',
@@ -92,7 +99,7 @@ export const OCCASIONS = [
     lineFr: 'Réunions, séminaires, remerciements clients. Facture fournie.',
     lineHe: 'ישיבות, כנסים, מתנות ללקוחות. חשבונית מלאה.',
     products: ['petit-plateau-sale', 'petit-plateau-sucre', 'croissant', 'pain-au-chocolat', 'plateau-sucre'],
-    img: 9
+    img: 26
   },
   {
     id: 'reception',
@@ -101,7 +108,7 @@ export const OCCASIONS = [
     lineFr: 'Buffet complet, composition sur mesure, devis en 24 h.',
     lineHe: 'בופה מלא, הרכב לפי בקשה, הצעת מחיר תוך 24 שעות.',
     products: ['plateau-sale', 'plateau-sucre', 'opera', 'tarte-fruits-grand'],
-    img: 2
+    img: 27
   },
   {
     id: 'gourmandise',
@@ -136,7 +143,7 @@ export const UNIVERSES = [
     ctaFr: 'Voir les plateaux',
     ctaHe: 'למגשים',
     filter: 'grand',
-    img: 10
+    img: 26
   },
   {
     id: 'sushi',
@@ -169,19 +176,21 @@ export const UNIVERSES = [
     ctaFr: 'Demander un devis',
     ctaHe: 'לבקש הצעת מחיר',
     filter: 'evenement',
-    img: 2
+    img: 27
   }
 ]
 
 /* Galerie éditoriale : n° de photo + format (t = tall, w = wide, s = square) */
 export const GALLERY = [
-  { n: 1, size: 't' }, { n: 6, size: 's' }, { n: 12, size: 'w' },
-  { n: 4, size: 's' }, { n: 9, size: 't' }, { n: 16, size: 's' },
-  { n: 7, size: 'w' }, { n: 13, size: 's' }, { n: 2, size: 't' },
-  { n: 17, size: 's' }, { n: 11, size: 'w' }, { n: 18, size: 's' }
+  { n: 25, size: 'w', fr: 'La vitrine de pâtisseries DAVIDEL', he: 'ויטרינת הקינוחים של DAVIDEL' },
+  { n: 23, size: 't', fr: 'Café et pâtisseries individuelles', he: 'קפה וקינוחים אישיים' },
+  { n: 22, size: 's', fr: 'Les viennoiseries DAVIDEL', he: 'המאפים של DAVIDEL' },
+  { n: 27, size: 'w', fr: 'Un buffet de desserts pour une réception', he: 'בר קינוחים לאירוע' },
+  { n: 24, size: 'w', fr: 'Les pièces montées en réception', he: 'מגדלי פחזניות באירוע' },
+  { n: 26, size: 'w', fr: 'Un buffet de brunch DAVIDEL', he: 'בופה בוקר של DAVIDEL' }
 ]
 
-export const INSTA = [8, 14, 5, 10, 16, 12]
+export const INSTA = [25, 27, 26, 24, 23, 22]
 
 export const HOURS = [
   { fr: 'Dimanche — Jeudi', he: 'ראשון — חמישי', v: '07:00 · 19:00' },

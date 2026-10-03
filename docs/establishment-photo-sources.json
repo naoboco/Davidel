@@ -1,0 +1,56 @@
+{
+  "source_page": "https://www.b144.co.il/b144_sip/businessgallery/4A1404134470655D4916021746786D5B4F/?image=1",
+  "user_google_link": "https://share.google/RtqJsMVeFva2P086H",
+  "source_note": "Le lien Google a rencontré une vérification humaine. Ces six photos ont été récupérées sur la fiche publique DAVIDEL de B144, puis vérifiées visuellement.",
+  "processing": "Conversion en WebP sans recadrage ni agrandissement.",
+  "photos": [
+    {
+      "file": "src/assets/establishment/viennoiseries-davidel.webp",
+      "source_url": "https://members-api.b144.co.il/httpHandlers/image.ashx?File=481C021B4475095F49150D7F4477095D4D780210427962554D1600104C75645D4014051B5A2A25081E&jpg=1&typ=2&w=1000&h=700",
+      "source_label": "מאפיים צרפתיים כדי להרגיש בפריז",
+      "width": 1000,
+      "height": 666,
+      "bytes": 86332
+    },
+    {
+      "file": "src/assets/establishment/cafe-patisseries-davidel.webp",
+      "source_url": "https://members-api.b144.co.il/httpHandlers/image.ashx?File=481C021B4475095F49150D7F4477095D4D780210427962554D16071B42766659411403125A2A25081E&jpg=1&typ=2&w=1000&h=700",
+      "source_label": "בוקר טוב חברים",
+      "width": 525,
+      "height": 700,
+      "bytes": 37058
+    },
+    {
+      "file": "src/assets/establishment/pieces-montees-davidel.webp",
+      "source_url": "https://members-api.b144.co.il/httpHandlers/image.ashx?File=481C021B4475095F49150D7F4477095D4D780210427962554D16051040726655411006155A2A25081E&jpg=1&typ=2&w=1000&h=700",
+      "source_label": "Pièces montée Davidel מגדל פרזניות ",
+      "width": 1000,
+      "height": 666,
+      "bytes": 87174
+    },
+    {
+      "file": "src/assets/establishment/vitrine-davidel.webp",
+      "source_url": "https://members-api.b144.co.il/httpHandlers/image.ashx?File=481C021B4475095F49150D7F4477095D4D780210427962554D16041247756C584F1207105A2A25081E&jpg=1&typ=2&w=1000&h=700",
+      "source_label": "ויטרינה של עוגות לכבוד שבת",
+      "width": 1000,
+      "height": 666,
+      "bytes": 85878
+    },
+    {
+      "file": "src/assets/establishment/buffet-brunch-davidel.webp",
+      "source_url": "https://members-api.b144.co.il/httpHandlers/image.ashx?File=481C021B4475095F49150D7F4477095D4D780210427962554D16041B47706D5C4C1403125A2A25081E&jpg=1&typ=2&w=1000&h=700",
+      "source_label": "בוקר חלבי דוידאל Davidel",
+      "width": 1000,
+      "height": 562,
+      "bytes": 48370
+    },
+    {
+      "file": "src/assets/establishment/buffet-reception-davidel.webp",
+      "source_url": "https://members-api.b144.co.il/httpHandlers/image.ashx?File=481C021B4475095F49150D7F4477095D4D780210427962554D16051B4276635C41160C125A2A25081E&jpg=1&typ=2&w=1000&h=700",
+      "source_label": "בר קינוחים דוידאל",
+      "width": 934,
+      "height": 700,
+      "bytes": 101572
+    }
+  ]
+}
