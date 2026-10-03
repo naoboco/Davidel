@@ -12,6 +12,7 @@ import {
   adminOccasions, saveOccasion, getSettings, saveSettings, uploadCmsImage
 } from '../lib/supabaseCms'
 import '../styles/admin.css'
+import { singleProductError } from '../lib/productCatalog'
 
 const TAGS = [
   ['individuel', 'Individuel'], ['grand', 'Grand format'], ['sale', 'Salé'],
@@ -35,7 +36,7 @@ function localProducts() {
     description_fr: p.descFr,
     description_he: p.descHe,
     price: p.price,
-    image_url: img(p.img),
+    image_url: p.image_url || img(p.img),
     active: true,
     unavailable_label: false,
     position: i + 1,
@@ -155,7 +156,10 @@ function ProductModal({ initial, onClose, onSaved, token }) {
   }
 
   async function submit(e){
-    e.preventDefault(); setBusy(true); setMessage('')
+    e.preventDefault()
+    const error = singleProductError(p)
+    if (error) { setMessage(error); return }
+    setBusy(true); setMessage('')
     try {
       const rows = await saveProduct(token, p)
       onSaved(rows?.[0] || p)
@@ -175,7 +179,7 @@ function ProductModal({ initial, onClose, onSaved, token }) {
           <small>JPG, PNG ou WEBP</small>
         </div>
         <div className="admin-fields">
-          <label>Nom français<input value={p.name_fr} onChange={e=>patch('name_fr',e.target.value)} required/></label>
+          <label>Nom français<input value={p.name_fr} onChange={e=>patch('name_fr',e.target.value)} required/><small>Un seul produit par fiche.</small></label>
           <label>Nom hébreu<input dir="rtl" value={p.name_he} onChange={e=>patch('name_he',e.target.value)} required/></label>
           <label>Description française<textarea value={p.description_fr||''} onChange={e=>patch('description_fr',e.target.value)}/></label>
           <label>Description hébraïque<textarea dir="rtl" value={p.description_he||''} onChange={e=>patch('description_he',e.target.value)}/></label>

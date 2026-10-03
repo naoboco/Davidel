@@ -7,6 +7,8 @@
    img  : index de la photo dans src/data/siteData.js -> IMAGES
    ========================================================================= */
 
+import { PRODUCT_IMAGES } from './productImages.js'
+
 export const FILTERS = [
   { id: 'tout', fr: 'Tout', he: 'הכול' },
   { id: 'individuel', fr: 'Individuel', he: 'ליחיד' },
@@ -16,17 +18,27 @@ export const FILTERS = [
   { id: 'evenement', fr: 'Événement', he: 'אירועים' }
 ]
 
-export const PRODUCTS = [
+const products = [
   // ---------------------------- INDIVIDUEL ----------------------------
   {
     id: 'croissant',
-    fr: 'Croissant · Pain au chocolat',
-    he: 'קרואסון · פן או שוקולה',
+    fr: 'Croissant',
+    he: 'קרואסון',
     descFr: 'Pur beurre, feuilletage lent, cuit le matin même.',
     descHe: 'חמאה טהורה, בצק עלים, נאפה באותו בוקר.',
     price: 8,
     tags: ['individuel', 'sucre'],
     img: 3
+  },
+  {
+    id: 'pain-au-chocolat',
+    fr: 'Pain au chocolat',
+    he: 'פן או שוקולה',
+    descFr: 'Feuilletage au beurre et cœur de chocolat.',
+    descHe: 'בצק עלים בחמאה עם מילוי שוקולד.',
+    price: 8,
+    tags: ['individuel', 'sucre'],
+    img: 19
   },
   {
     id: 'abricot',
@@ -40,12 +52,22 @@ export const PRODUCTS = [
   },
   {
     id: 'viennoiserie',
-    fr: 'Viennoiserie · Hallotes',
-    he: 'מאפה · חלות',
-    descFr: 'La corbeille du vendredi, tiède si vous arrivez tôt.',
-    descHe: 'סל יום שישי — חם, אם תקדימו.',
+    fr: 'Viennoiserie',
+    he: 'מאפה',
+    descFr: 'Une viennoiserie du jour, préparée chaque matin.',
+    descHe: 'מאפה היום, מוכן בכל בוקר.',
     price: 12,
     tags: ['individuel', 'sucre'],
+    img: 20
+  },
+  {
+    id: 'hallote',
+    fr: 'Hallote',
+    he: 'חלה',
+    descFr: 'Pain tressé pour la table de Shabbat.',
+    descHe: 'חלה קלועה לשולחן שבת.',
+    price: 12,
+    tags: ['grand', 'evenement'],
     img: 5
   },
   {
@@ -60,13 +82,23 @@ export const PRODUCTS = [
   },
   {
     id: 'saint-honore',
-    fr: 'Saint-Honoré · Tarte aux fruits',
-    he: 'סנט-הונורה · טארט פירות',
-    descFr: 'Le classique parisien et sa version fruitée.',
-    descHe: 'הקלאסיקה הפריזאית והגרסה הפירותית שלה.',
+    fr: 'Saint-Honoré',
+    he: 'סנט-הונורה',
+    descFr: 'Choux caramélisés, crème et base feuilletée.',
+    descHe: 'פחזניות מקורמלות, קרם ובסיס בצק עלים.',
     price: 22,
     tags: ['individuel', 'sucre'],
     img: 7
+  },
+  {
+    id: 'tarte-fruits-individuelle',
+    fr: 'Tarte aux fruits',
+    he: 'טארט פירות',
+    descFr: 'Une tartelette garnie de crème et de fruits de saison.',
+    descHe: 'טארטלט עם קרם ופירות העונה.',
+    price: 22,
+    tags: ['individuel', 'sucre'],
+    img: 21
   },
 
   // ---------------------------- GRAND FORMAT ----------------------------
@@ -181,3 +213,8 @@ export const PRODUCTS = [
     img: 18
   }
 ]
+
+export const PRODUCTS = products.map((product) => ({
+  ...product,
+  image_url: PRODUCT_IMAGES[product.id]
+}))

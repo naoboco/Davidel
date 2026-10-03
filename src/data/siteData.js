@@ -1,18 +1,39 @@
 /* =========================================================================
    DONNÉES DE MARQUE — DAVIDEL
    -------------------------------------------------------------------------
-   PHOTOS : ce sont les vraies photographies DAVIDEL (galerie du site actuel).
-   Pour figer les images en local : téléchargez-les dans /public/img/1.webp …
-   puis remplacez PHOTO_BASE par './img/'.
-   L'ordre des photos n'a pas été vérifié visuellement : si un plateau salé
-   se retrouve sur la section Pâtisserie, changez simplement le numéro.
+   Visuels gastronomiques générés, enregistrés dans src/assets/products.
+   Chaque référence correspond au produit ou à l'univers représenté.
    ========================================================================= */
 
-export const PHOTO_BASE = 'https://davidel.co.il/img/cms/gallery/'
+import { PRODUCT_IMAGES } from './productImages.js'
+
 export const LOGO = 'https://davidel.co.il/img/logo-1748603599.svg'
 
-export const img = (n) => `${PHOTO_BASE}${n}.webp`
-export const IMAGES = Array.from({ length: 18 }, (_, i) => img(i + 1))
+export const IMAGES = [
+  PRODUCT_IMAGES['bavarois'],
+  PRODUCT_IMAGES['plateau-sale'],
+  PRODUCT_IMAGES['croissant'],
+  PRODUCT_IMAGES['abricot'],
+  PRODUCT_IMAGES['hallote'],
+  PRODUCT_IMAGES['gateau-individuel'],
+  PRODUCT_IMAGES['saint-honore'],
+  PRODUCT_IMAGES['petit-plateau-sale'],
+  PRODUCT_IMAGES['petit-plateau-sucre'],
+  PRODUCT_IMAGES['plateau-sale'],
+  PRODUCT_IMAGES['plateau-sucre'],
+  PRODUCT_IMAGES['tarte-citron'],
+  PRODUCT_IMAGES['tarte-chocolat'],
+  PRODUCT_IMAGES['bavarois'],
+  PRODUCT_IMAGES['opera'],
+  PRODUCT_IMAGES['rocher'],
+  PRODUCT_IMAGES['succes'],
+  PRODUCT_IMAGES['tarte-fruits-grand'],
+  PRODUCT_IMAGES['pain-au-chocolat'],
+  PRODUCT_IMAGES['viennoiserie'],
+  PRODUCT_IMAGES['tarte-fruits-individuelle']
+]
+
+export const img = (n) => IMAGES[n - 1]
 
 export const CONTACT = {
   phoneDisplay: '02-642-8866',
@@ -34,7 +55,7 @@ export const OCCASIONS = [
     he: 'שבת',
     lineFr: 'Hallotes, plateaux et desserts pour la table du vendredi.',
     lineHe: 'חלות, מגשים וקינוחים לשולחן של יום שישי.',
-    products: ['viennoiserie', 'petit-plateau-sucre', 'plateau-sale', 'tarte-fruits-grand'],
+    products: ['hallote', 'petit-plateau-sucre', 'plateau-sale', 'tarte-fruits-grand'],
     img: 5
   },
   {
@@ -52,7 +73,7 @@ export const OCCASIONS = [
     he: 'ברית · משפחה',
     lineFr: 'Le matin se prépare la veille. Nous livrons prêt à dresser.',
     lineHe: 'הבוקר מתארגן מאתמול. אנחנו מגיעים מוכנים להגשה.',
-    products: ['plateau-sale', 'plateau-sucre', 'croissant', 'saint-honore'],
+    products: ['plateau-sale', 'plateau-sucre', 'croissant', 'pain-au-chocolat', 'saint-honore'],
     img: 8
   },
   {
@@ -70,7 +91,7 @@ export const OCCASIONS = [
     he: 'חברות',
     lineFr: 'Réunions, séminaires, remerciements clients. Facture fournie.',
     lineHe: 'ישיבות, כנסים, מתנות ללקוחות. חשבונית מלאה.',
-    products: ['petit-plateau-sale', 'petit-plateau-sucre', 'croissant', 'plateau-sucre'],
+    products: ['petit-plateau-sale', 'petit-plateau-sucre', 'croissant', 'pain-au-chocolat', 'plateau-sucre'],
     img: 9
   },
   {
@@ -88,7 +109,7 @@ export const OCCASIONS = [
     he: 'סתם פינוק',
     lineFr: 'Aucune occasion. C’est déjà une très bonne raison.',
     lineHe: 'בלי סיבה. וזו כבר סיבה מצוינת.',
-    products: ['croissant', 'abricot', 'gateau-individuel', 'tarte-citron'],
+    products: ['croissant', 'pain-au-chocolat', 'abricot', 'gateau-individuel', 'tarte-fruits-individuelle'],
     img: 3
   }
 ]

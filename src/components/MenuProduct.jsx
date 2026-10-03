@@ -33,7 +33,7 @@ const MenuProduct = forwardRef(function MenuProduct({ product }, ref) {
         <a className="btn btn-ligne btn-sm" href={waProduct(product, lang)} target="_blank" rel="noreferrer">
           <MessageCircle size={13} strokeWidth={1.6} />{t.interested}
         </a>
-        <button className="btn btn-rose btn-sm" onClick={() => add(product)} aria-label={t.addToCarnet} disabled={product.unavailable}>
+        <button className="btn btn-rose btn-sm" onClick={() => add(product)} aria-label={`${t.addToCarnet} : ${f(product)}`} disabled={product.unavailable}>
           <Plus size={13} strokeWidth={1.8} />
         </button>
         {isFlash && <span className="added-flash">{t.added}</span>}

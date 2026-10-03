@@ -1,0 +1,21 @@
+export const PRODUCT_IMAGES = {
+  'croissant': new URL('../assets/products/croissant.webp', import.meta.url).href,
+  'pain-au-chocolat': new URL('../assets/products/pain-au-chocolat.webp', import.meta.url).href,
+  'abricot': new URL('../assets/products/abricot.webp', import.meta.url).href,
+  'viennoiserie': new URL('../assets/products/viennoiserie.webp', import.meta.url).href,
+  'hallote': new URL('../assets/products/hallote.webp', import.meta.url).href,
+  'gateau-individuel': new URL('../assets/products/gateau-individuel.webp', import.meta.url).href,
+  'saint-honore': new URL('../assets/products/saint-honore.webp', import.meta.url).href,
+  'tarte-fruits-individuelle': new URL('../assets/products/tarte-fruits-individuelle.webp', import.meta.url).href,
+  'petit-plateau-sale': new URL('../assets/products/petit-plateau-sale.webp', import.meta.url).href,
+  'petit-plateau-sucre': new URL('../assets/products/petit-plateau-sucre.webp', import.meta.url).href,
+  'plateau-sale': new URL('../assets/products/plateau-sale.webp', import.meta.url).href,
+  'plateau-sucre': new URL('../assets/products/plateau-sucre.webp', import.meta.url).href,
+  'tarte-citron': new URL('../assets/products/tarte-citron.webp', import.meta.url).href,
+  'tarte-chocolat': new URL('../assets/products/tarte-chocolat.webp', import.meta.url).href,
+  'bavarois': new URL('../assets/products/bavarois.webp', import.meta.url).href,
+  'opera': new URL('../assets/products/opera.webp', import.meta.url).href,
+  'rocher': new URL('../assets/products/rocher.webp', import.meta.url).href,
+  'succes': new URL('../assets/products/succes.webp', import.meta.url).href,
+  'tarte-fruits-grand': new URL('../assets/products/tarte-fruits-grand.webp', import.meta.url).href
+}

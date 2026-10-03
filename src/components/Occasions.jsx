@@ -61,7 +61,7 @@ export default function Occasions({ onSeeAll }) {
                     <span className="nm">{f(p)}</span>
                     <span style={{ display: 'flex', alignItems: 'center', gap: 14 }}>
                       <span className="pr">{p.price} ₪</span>
-                      <button className="btn btn-ligne btn-sm" onClick={() => add(p)} aria-label={t.addToCarnet}>
+                      <button className="btn btn-ligne btn-sm" onClick={() => add(p)} aria-label={`${t.addToCarnet} : ${f(p)}`}>
                         <Plus size={13} strokeWidth={1.6} />
                       </button>
                     </span>

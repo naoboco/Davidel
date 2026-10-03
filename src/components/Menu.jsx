@@ -8,6 +8,7 @@ import { CONTACT } from '../data/siteData'
 import { cmsConfigured, publicProducts } from '../lib/supabaseCms'
 import MenuProduct from './MenuProduct'
 import { Reveal, MaskLine } from '../lib/motion'
+import { normalizeProducts } from '../lib/productCatalog'
 
 function fromCms(row) {
   return {
@@ -32,14 +33,17 @@ export default function Menu({ filter, setFilter }) {
     let alive = true
     publicProducts()
       .then(rows => {
-        if (alive && Array.isArray(rows) && rows.length) setProducts(rows.map(fromCms))
+        if (alive && Array.isArray(rows) && rows.length) setProducts(normalizeProducts(rows.map(fromCms)))
       })
       .catch(err => console.warn('DAVIDEL CMS fallback local:', err.message))
     return () => { alive = false }
   }, [])
 
   const shown = useMemo(
-    () => filter === 'tout' ? products : products.filter((p) => p.tags.includes(filter)),
+    () => {
+      const catalogue = normalizeProducts(products)
+      return filter === 'tout' ? catalogue : catalogue.filter((p) => p.tags.includes(filter))
+    },
     [filter, products]
   )
 
@@ -69,6 +73,8 @@ export default function Menu({ filter, setFilter }) {
           </AnimatePresence>
         </div>
       </LayoutGroup>
+
+      <p className="menu-image-note">{t.imageNote}</p>
 
       <div className="menu-foot">
         <p>{t.menuAdvice}</p>

@@ -36,6 +36,7 @@ export const T = {
     added: 'Ajouté au carnet',
     addToCarnet: 'Ajouter au carnet',
     menuAdvice: 'Besoin d’un conseil pour composer ?',
+    imageNote: 'Visuels d’illustration. La présentation peut varier selon la création du jour.',
 
     evEyebrow: 'Réceptions',
     evTitle1: 'VOUS INVITEZ.',
@@ -61,14 +62,14 @@ export const T = {
     quoteLine: 'Vous préparez une réception ?',
 
     galEyebrow: 'Galerie',
-    galTitle: 'CE QUI SORT DE L’ATELIER',
+    galTitle: 'INSPIRATIONS GOURMANDES',
     galQuote: 'Un buffet doit être délicieux avant même qu’on l’ait goûté.',
     galQuote2: 'La couleur d’abord. Le silence à table ensuite.',
     galWant: 'Vous voulez une table comme celle-ci ?',
     talk: 'Parler avec DAVIDEL',
 
     instaEyebrow: 'Instagram',
-    instaTitle: 'DAVIDEL EN COULISSES',
+    instaTitle: 'RETROUVEZ DAVIDEL SUR INSTAGRAM',
     follow: 'Suivre DAVIDEL',
     moreCreations: 'Voir plus de créations',
 
@@ -128,6 +129,7 @@ export const T = {
     added: 'נוסף לפנקס',
     addToCarnet: 'להוסיף לפנקס',
     menuAdvice: 'רוצים עזרה בהרכבה?',
+    imageNote: 'תמונות להמחשה. ההגשה עשויה להשתנות בהתאם ליצירה היומית.',
 
     evEyebrow: 'אירועים',
     evTitle1: 'אתם מזמינים.',
@@ -153,14 +155,14 @@ export const T = {
     quoteLine: 'מתכננים אירוע?',
 
     galEyebrow: 'גלריה',
-    galTitle: 'מה שיוצא מהמטבח',
+    galTitle: 'השראה מתוקה',
     galQuote: 'בופה צריך להיות טעים עוד לפני הביס הראשון.',
     galQuote2: 'קודם הצבע. אחר כך השקט סביב השולחן.',
     galWant: 'רוצים שולחן כזה?',
     talk: 'לדבר עם DAVIDEL',
 
     instaEyebrow: 'אינסטגרם',
-    instaTitle: 'DAVIDEL מאחורי הקלעים',
+    instaTitle: 'DAVIDEL באינסטגרם',
     follow: 'לעקוב אחרי DAVIDEL',
     moreCreations: 'עוד יצירות',
 
