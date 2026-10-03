@@ -2,8 +2,9 @@ import { useEffect, useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import { Menu as Burger, X, MessageCircle, Phone, Languages } from 'lucide-react'
 import { useLang } from '../i18n/LangContext'
-import { LOGO, CONTACT } from '../data/siteData'
+import { CONTACT } from '../data/siteData'
 import { waOpen, telLink } from '../lib/whatsapp'
+import BrandLogo from './BrandLogo'
 
 const SECTIONS = ['home', 'menu', 'events', 'gallery', 'contact']
 const ANCHORS = { home: '#top', menu: '#menu', events: '#events', gallery: '#gallery', contact: '#contact' }
@@ -54,7 +55,7 @@ export default function Header({ onOrder }) {
         </button>
 
         <a className="header-logo" href="#top" aria-label="DAVIDEL">
-          <img src={LOGO} alt="DAVIDEL" />
+          <BrandLogo />
         </a>
 
         <div className="header-right">

@@ -204,6 +204,7 @@ html.is-rtl .header-link { letter-spacing: 0.08em; }
 
 .header-logo { justify-self: center; display: flex; align-items: center; gap: 12px; }
 .header-logo img { height: clamp(26px, 3vw, 34px); width: auto; filter: brightness(0) invert(1); }
+.brand-wordmark { font-family: var(--texte); font-size: 22px; font-weight: 400; letter-spacing: 0.2em; line-height: 1.2; }
 .header-right { justify-self: end; display: flex; align-items: center; gap: 14px; }
 
 .lang {
