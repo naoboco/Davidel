@@ -30,8 +30,10 @@ const MenuProduct = forwardRef(function MenuProduct({ product }, ref) {
       <p className="product-desc">{f(product, 'desc')}</p>
 
       <div className="product-actions">
-        <a className="btn btn-ligne btn-sm" href={waProduct(product, lang)} target="_blank" rel="noreferrer">
-          <MessageCircle size={13} strokeWidth={1.6} />{t.interested}
+        <a className="btn btn-ligne btn-sm" href={waProduct(product, lang)} target="_blank" rel="noreferrer" aria-label={`${t.interested} : ${f(product)}`}>
+          <MessageCircle size={13} strokeWidth={1.6} />
+          <span className="product-interest-full">{t.interested}</span>
+          <span className="product-interest-short">{lang === 'he' ? 'פרטים' : 'Infos'}</span>
         </a>
         <button className="btn btn-rose btn-sm" onClick={() => add(product)} aria-label={`${t.addToCarnet} : ${f(product)}`} disabled={product.unavailable}>
           <Plus size={13} strokeWidth={1.8} />

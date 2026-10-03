@@ -1,3 +1,4 @@
+import { useEffect } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import { X, Minus, Plus, MessageCircle, NotebookPen } from 'lucide-react'
 import { useLang } from '../i18n/LangContext'
@@ -7,6 +8,18 @@ import { waCarnet } from '../lib/whatsapp'
 export default function Carnet() {
   const { t, lang, rtl } = useLang()
   const { lines, setQty, clear, count, total, open, setOpen } = useCarnet()
+
+  useEffect(() => {
+    if (!open) return
+    const previousOverflow = document.body.style.overflow
+    const onKey = (event) => { if (event.key === 'Escape') setOpen(false) }
+    document.body.style.overflow = 'hidden'
+    document.addEventListener('keydown', onKey)
+    return () => {
+      document.body.style.overflow = previousOverflow
+      document.removeEventListener('keydown', onKey)
+    }
+  }, [open, setOpen])
 
   return (
     <>
@@ -33,7 +46,7 @@ export default function Carnet() {
             <motion.aside className="carnet-panel"
               initial={{ x: rtl ? '-100%' : '100%' }} animate={{ x: 0 }} exit={{ x: rtl ? '-100%' : '100%' }}
               transition={{ duration: 0.55, ease: [0.16, 1, 0.3, 1] }}
-              role="dialog" aria-label={t.carnet}>
+              role="dialog" aria-modal="true" aria-label={t.carnet}>
               <div className="carnet-head">
                 <span className="ttl">{t.carnet}</span>
                 <button onClick={() => setOpen(false)} aria-label={t.close}>

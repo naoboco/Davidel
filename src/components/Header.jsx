@@ -22,8 +22,15 @@ export default function Header({ onOrder }) {
   }, [])
 
   useEffect(() => {
-    document.body.style.overflow = open ? 'hidden' : ''
-    return () => { document.body.style.overflow = '' }
+    if (!open) return
+    const previousOverflow = document.body.style.overflow
+    const onKey = (event) => { if (event.key === 'Escape') setOpen(false) }
+    document.body.style.overflow = 'hidden'
+    document.addEventListener('keydown', onKey)
+    return () => {
+      document.body.style.overflow = previousOverflow
+      document.removeEventListener('keydown', onKey)
+    }
   }, [open])
 
   const changeLanguage = (next) => {
@@ -50,7 +57,7 @@ export default function Header({ onOrder }) {
           ))}
         </nav>
 
-        <button type="button" className="burger" onClick={() => setOpen(true)} aria-label={t.nav.menu}>
+        <button type="button" className="burger" onClick={() => setOpen(true)} aria-label={t.nav.menu} aria-expanded={open} aria-controls="mobile-navigation">
           <Burger size={22} strokeWidth={1.2} />
         </button>
 
@@ -72,6 +79,7 @@ export default function Header({ onOrder }) {
       <AnimatePresence>
         {open && (
           <motion.div className="fullmenu"
+            id="mobile-navigation" role="dialog" aria-modal="true" aria-label={t.nav.menu}
             initial={{ opacity: 0, y: -18 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -18 }}

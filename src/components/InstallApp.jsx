@@ -50,6 +50,18 @@ export default function InstallApp() {
     }
   }, [])
 
+  useEffect(() => {
+    if (!helpOpen) return
+    const previousOverflow = document.body.style.overflow
+    const onKey = (event) => { if (event.key === 'Escape') setHelpOpen(false) }
+    document.body.style.overflow = 'hidden'
+    document.addEventListener('keydown', onKey)
+    return () => {
+      document.body.style.overflow = previousOverflow
+      document.removeEventListener('keydown', onKey)
+    }
+  }, [helpOpen])
+
   const install = async () => {
     if (promptEvent) {
       await promptEvent.prompt()
@@ -83,6 +95,7 @@ export default function InstallApp() {
             initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
             onClick={() => setHelpOpen(false)}>
             <motion.section className="install-help"
+              role="dialog" aria-modal="true" aria-label={copy.title}
               initial={{ opacity: 0, y: 22, scale: 0.98 }}
               animate={{ opacity: 1, y: 0, scale: 1 }}
               exit={{ opacity: 0, y: 18, scale: 0.98 }}
