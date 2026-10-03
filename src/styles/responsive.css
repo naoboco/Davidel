@@ -1,4 +1,37 @@
 .product-interest-short { display: none; }
+.product-actions { position: relative; }
+.added-flash {
+  position: absolute;
+  inset-inline-end: 0;
+  bottom: calc(100% + 8px);
+  z-index: 3;
+  max-width: 100%;
+  padding: 7px 10px;
+  border: 1px solid var(--rose);
+  border-radius: 12px;
+  background: var(--craie);
+  color: var(--noir);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, .35);
+  font-family: var(--texte);
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1.25;
+  letter-spacing: .02em;
+  text-align: center;
+  pointer-events: none;
+}
+.carnet-total .v {
+  font-family: var(--texte);
+  font-size: clamp(30px, 5vw, 36px);
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0;
+  line-height: 1.2;
+  color: var(--craie);
+}
+.carnet-total .k { font-weight: 600; letter-spacing: .12em; }
+.carnet-line .pr, .qty span, .carnet-tab .n { font-weight: 700; font-variant-numeric: tabular-nums; }
+.carnet-line .pr { color: var(--rose-clair); }
 
 @media (max-width: 1080px) {
   main section[id] { scroll-margin-top: calc(88px + env(safe-area-inset-top)); }
@@ -60,6 +93,7 @@
 }
 
 @media (max-width: 620px) {
+  .carnet-panel { width: 100%; }
   .header { grid-template-columns: 44px minmax(0, 1fr) auto !important; min-height: 72px; }
   .header-logo { display: flex !important; }
   .header-logo .brand-wordmark { font-size: clamp(16px, 4.2vw, 20px); letter-spacing: .13em; }
@@ -108,7 +142,6 @@
   .product-actions button { width: 44px; }
   .product-interest-full { display: none; }
   .product-interest-short { display: inline; }
-  .added-flash { position: absolute; bottom: 48px; inset-inline-end: 0; font-size: 9px; }
 }
 
 @media (max-width: 360px) {

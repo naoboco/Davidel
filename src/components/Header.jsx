@@ -5,6 +5,7 @@ import { useLang } from '../i18n/LangContext'
 import { CONTACT } from '../data/siteData'
 import { waOpen, telLink } from '../lib/whatsapp'
 import BrandLogo from './BrandLogo'
+import { useScrollLock } from '../lib/useScrollLock'
 
 const SECTIONS = ['home', 'menu', 'events', 'gallery', 'contact']
 const ANCHORS = { home: '#top', menu: '#menu', events: '#events', gallery: '#gallery', contact: '#contact' }
@@ -13,6 +14,7 @@ export default function Header({ onOrder }) {
   const { t, lang, setLang } = useLang()
   const [stuck, setStuck] = useState(false)
   const [open, setOpen] = useState(false)
+  useScrollLock(open)
 
   useEffect(() => {
     const onScroll = () => setStuck(window.scrollY > 40)
@@ -23,12 +25,9 @@ export default function Header({ onOrder }) {
 
   useEffect(() => {
     if (!open) return
-    const previousOverflow = document.body.style.overflow
     const onKey = (event) => { if (event.key === 'Escape') setOpen(false) }
-    document.body.style.overflow = 'hidden'
     document.addEventListener('keydown', onKey)
     return () => {
-      document.body.style.overflow = previousOverflow
       document.removeEventListener('keydown', onKey)
     }
   }, [open])

@@ -1,6 +1,6 @@
 import { forwardRef } from 'react'
-import { MessageCircle, Plus } from 'lucide-react'
-import { motion } from 'framer-motion'
+import { Check, MessageCircle, Plus } from 'lucide-react'
+import { AnimatePresence, motion } from 'framer-motion'
 import { useLang } from '../i18n/LangContext'
 import { img } from '../data/siteData'
 import { waProduct } from '../lib/whatsapp'
@@ -36,9 +36,17 @@ const MenuProduct = forwardRef(function MenuProduct({ product }, ref) {
           <span className="product-interest-short">{lang === 'he' ? 'פרטים' : 'Infos'}</span>
         </a>
         <button className="btn btn-rose btn-sm" onClick={() => add(product)} aria-label={`${t.addToCarnet} : ${f(product)}`} disabled={product.unavailable}>
-          <Plus size={13} strokeWidth={1.8} />
+          {isFlash ? <Check size={16} strokeWidth={2.4} /> : <Plus size={13} strokeWidth={1.8} />}
         </button>
-        {isFlash && <span className="added-flash">{t.added}</span>}
+        <AnimatePresence initial={false}>
+          {isFlash && (
+            <motion.span className="added-flash" role="status"
+              initial={{ opacity: 0, y: 6 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }}
+              transition={{ duration: 0.18 }}>
+              {t.added}
+            </motion.span>
+          )}
+        </AnimatePresence>
       </div>
     </motion.article>
   )

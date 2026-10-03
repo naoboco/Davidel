@@ -5,11 +5,13 @@ import { useLang } from '../i18n/LangContext'
 import { GALLERY, img } from '../data/siteData'
 import { waOpen } from '../lib/whatsapp'
 import { Reveal, MaskLine } from '../lib/motion'
+import { useScrollLock } from '../lib/useScrollLock'
 
 export default function Gallery() {
   const { t, lang } = useLang()
   const reduce = useReducedMotion()
   const [open, setOpen] = useState(null)
+  useScrollLock(open !== null)
 
   const items = GALLERY
   const go = useCallback((dir) => {
@@ -24,10 +26,8 @@ export default function Gallery() {
       if (e.key === 'ArrowLeft') go(-1)
     }
     document.addEventListener('keydown', onKey)
-    document.body.style.overflow = 'hidden'
     return () => {
       document.removeEventListener('keydown', onKey)
-      document.body.style.overflow = ''
     }
   }, [open, go])
 

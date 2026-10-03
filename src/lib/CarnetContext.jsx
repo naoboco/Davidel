@@ -1,4 +1,4 @@
-import { createContext, useCallback, useContext, useEffect, useMemo, useState } from 'react'
+import { createContext, useCallback, useContext, useEffect, useMemo, useRef, useState } from 'react'
 
 const CarnetContext = createContext(null)
 const KEY = 'davidel-carnet'
@@ -14,6 +14,9 @@ export function CarnetProvider({ children }) {
   })
   const [open, setOpen] = useState(false)
   const [flash, setFlash] = useState(null)
+  const flashTimeout = useRef(null)
+
+  useEffect(() => () => window.clearTimeout(flashTimeout.current), [])
 
   useEffect(() => {
     try { localStorage.setItem(KEY, JSON.stringify(lines)) } catch (e) { /* mode privé */ }
@@ -27,7 +30,8 @@ export function CarnetProvider({ children }) {
     })
     setFlash(product.id)
     if (navigator.vibrate) navigator.vibrate(8)
-    setTimeout(() => setFlash((f) => (f === product.id ? null : f)), 1400)
+    window.clearTimeout(flashTimeout.current)
+    flashTimeout.current = window.setTimeout(() => setFlash(null), 2400)
   }, [])
 
   const setQty = useCallback((id, qty) => {

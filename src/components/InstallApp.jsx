@@ -2,6 +2,7 @@ import { useEffect, useMemo, useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import { Download, Share, MoreVertical, X } from 'lucide-react'
 import { useLang } from '../i18n/LangContext'
+import { useScrollLock } from '../lib/useScrollLock'
 
 const standalone = () =>
   window.matchMedia?.('(display-mode: standalone)').matches ||
@@ -12,6 +13,7 @@ export default function InstallApp() {
   const [promptEvent, setPromptEvent] = useState(null)
   const [installed, setInstalled] = useState(false)
   const [helpOpen, setHelpOpen] = useState(false)
+  useScrollLock(helpOpen)
 
   const copy = useMemo(() => lang === 'he' ? {
     button: 'התקנת DAVIDEL',
@@ -52,12 +54,9 @@ export default function InstallApp() {
 
   useEffect(() => {
     if (!helpOpen) return
-    const previousOverflow = document.body.style.overflow
     const onKey = (event) => { if (event.key === 'Escape') setHelpOpen(false) }
-    document.body.style.overflow = 'hidden'
     document.addEventListener('keydown', onKey)
     return () => {
-      document.body.style.overflow = previousOverflow
       document.removeEventListener('keydown', onKey)
     }
   }, [helpOpen])

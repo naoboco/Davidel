@@ -4,19 +4,18 @@ import { X, Minus, Plus, MessageCircle, NotebookPen } from 'lucide-react'
 import { useLang } from '../i18n/LangContext'
 import { useCarnet } from '../lib/CarnetContext'
 import { waCarnet } from '../lib/whatsapp'
+import { useScrollLock } from '../lib/useScrollLock'
 
 export default function Carnet() {
   const { t, lang, rtl } = useLang()
   const { lines, setQty, clear, count, total, open, setOpen } = useCarnet()
+  useScrollLock(open)
 
   useEffect(() => {
     if (!open) return
-    const previousOverflow = document.body.style.overflow
     const onKey = (event) => { if (event.key === 'Escape') setOpen(false) }
-    document.body.style.overflow = 'hidden'
     document.addEventListener('keydown', onKey)
     return () => {
-      document.body.style.overflow = previousOverflow
       document.removeEventListener('keydown', onKey)
     }
   }, [open, setOpen])
