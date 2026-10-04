@@ -8,10 +8,17 @@ const standalone = () =>
   window.matchMedia?.('(display-mode: standalone)').matches ||
   window.navigator.standalone === true
 
+const INSTALL_KEY = 'davidel-installed'
+
+const installationKnown = () => {
+  if (standalone()) return true
+  try { return window.localStorage.getItem(INSTALL_KEY) === '1' } catch { return false }
+}
+
 export default function InstallApp() {
   const { lang } = useLang()
   const [promptEvent, setPromptEvent] = useState(null)
-  const [installed, setInstalled] = useState(false)
+  const [installed, setInstalled] = useState(installationKnown)
   const [helpOpen, setHelpOpen] = useState(false)
   useScrollLock(helpOpen)
 
@@ -19,36 +26,48 @@ export default function InstallApp() {
     button: 'התקנת DAVIDEL',
     title: 'DAVIDEL במסך הבית',
     intro: 'התקינו את האתר כאפליקציה לגישה מהירה וישירה.',
-    ios: 'באייפון: לחצו על שיתוף ואז “הוספה למסך הבית”.',
+    androidButton: 'התקנה באנדרואיד',
+    iosButton: 'הוספה באייפון',
+    ios: 'באייפון: פתחו את האתר ב-Safari, לחצו על שיתוף ואז “הוספה למסך הבית”.',
     android: 'באנדרואיד: פתחו את תפריט הדפדפן ובחרו “התקנת אפליקציה” או “הוספה למסך הבית”.',
     close: 'סגירה'
   } : {
     button: 'Installer DAVIDEL',
     title: 'DAVIDEL sur votre écran d’accueil',
     intro: 'Installez le site comme une application pour y accéder en un geste.',
-    ios: 'Sur iPhone : touchez Partager, puis « Sur l’écran d’accueil ».',
+    androidButton: 'Installer sur Android',
+    iosButton: 'Ajouter sur iPhone',
+    ios: 'Sur iPhone : ouvrez le site dans Safari, touchez Partager, puis « Sur l’écran d’accueil ».',
     android: 'Sur Android : ouvrez le menu du navigateur puis « Installer l’application » ou « Ajouter à l’écran d’accueil ».',
     close: 'Fermer'
   }, [lang])
 
   useEffect(() => {
-    setInstalled(standalone())
+    const displayMode = window.matchMedia?.('(display-mode: standalone)')
 
     const onBeforeInstall = (event) => {
       event.preventDefault()
+      try { window.localStorage.removeItem(INSTALL_KEY) } catch {}
+      setInstalled(false)
       setPromptEvent(event)
     }
     const onInstalled = () => {
+      try { window.localStorage.setItem(INSTALL_KEY, '1') } catch {}
       setInstalled(true)
       setPromptEvent(null)
       setHelpOpen(false)
     }
+    const onDisplayModeChange = (event) => { if (event.matches) onInstalled() }
+
+    if (standalone()) onInstalled()
 
     window.addEventListener('beforeinstallprompt', onBeforeInstall)
     window.addEventListener('appinstalled', onInstalled)
+    displayMode?.addEventListener?.('change', onDisplayModeChange)
     return () => {
       window.removeEventListener('beforeinstallprompt', onBeforeInstall)
       window.removeEventListener('appinstalled', onInstalled)
+      displayMode?.removeEventListener?.('change', onDisplayModeChange)
     }
   }, [])
 
@@ -63,9 +82,14 @@ export default function InstallApp() {
 
   const install = async () => {
     if (promptEvent) {
-      await promptEvent.prompt()
-      const choice = await promptEvent.userChoice
-      if (choice?.outcome === 'accepted') setPromptEvent(null)
+      setPromptEvent(null)
+      try {
+        await promptEvent.prompt()
+        const choice = await promptEvent.userChoice
+        if (choice?.outcome === 'accepted') setInstalled(true)
+      } catch {
+        setHelpOpen(true)
+      }
       return
     }
     setHelpOpen(true)
@@ -75,6 +99,24 @@ export default function InstallApp() {
 
   return (
     <>
+      <aside className="install-invite" aria-label={copy.title}>
+        <div>
+          <h2>{copy.title}</h2>
+          <p>{copy.intro}</p>
+        </div>
+        <div className="install-invite-actions">
+          <button className="btn btn-rose" type="button" onClick={() => {
+            if (/Android/i.test(window.navigator.userAgent)) install()
+            else setHelpOpen(true)
+          }}>
+            <Download size={17} />{copy.androidButton}
+          </button>
+          <button className="btn" type="button" onClick={() => setHelpOpen(true)}>
+            <Share size={17} />{copy.iosButton}
+          </button>
+        </div>
+      </aside>
+
       <motion.button
         className="install-app"
         type="button"
@@ -104,7 +146,7 @@ export default function InstallApp() {
                 <X size={20} strokeWidth={1.4} />
               </button>
               <img className="install-help-logo" src="./icons/icon-192.png" alt="DAVIDEL" />
-              <p className="eyebrow">PWA · DAVIDEL</p>
+              <p className="eyebrow">DAVIDEL</p>
               <h2>{copy.title}</h2>
               <p>{copy.intro}</p>
               <div className="install-step"><Share size={19} /><span>{copy.ios}</span></div>

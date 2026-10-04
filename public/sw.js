@@ -1,5 +1,5 @@
-const CACHE = 'davidel-pwa-v8'
-const APP_SHELL = ['./', './manifest.webmanifest?v=6', './icons/davidel-brand-source.svg?v=6']
+const CACHE = 'davidel-pwa-v9'
+const APP_SHELL = ['./', './manifest.webmanifest?v=9', './icons/davidel-brand-source.svg?v=6']
 
 self.addEventListener('install', (event) => {
   event.waitUntil(caches.open(CACHE).then((cache) => cache.addAll(APP_SHELL)))

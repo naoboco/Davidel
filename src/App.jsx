@@ -48,6 +48,7 @@ export default function App() {
         <main>
           <Hero onOrder={() => goToMenu('tout')} />
           <TrustBar />
+          <InstallApp />
           <Occasions onSeeAll={goToMenu} />
           <Universes onFilter={goToMenu} />
           <Menu filter={filter} setFilter={setFilter} />
@@ -60,7 +61,6 @@ export default function App() {
         <FloatingActions />
         <MobileCTA onOrder={() => goToMenu('tout')} />
         <Carnet />
-        <InstallApp />
       </CarnetProvider>
     </LangProvider>
   )
